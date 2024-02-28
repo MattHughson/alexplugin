@@ -42,9 +42,10 @@ const FieldPlugin = () => {
     Array.isArray(value) && value.every((it) => typeof it === 'object')
   const content = isArrayOfObjects(data?.content) ? data?.content : []
   // Extracting starts_with from options
-  const startsWith = data?.options.starts_with ?? ''
+  const startsWith = data?.options.starts_with ?? '4'
   // Using space token
-  const token = data?.token
+  const token = "x6bZznzJy7iTthk4OnIxrAtt"
+  console.log(token, 'token')
  
   const maximum = Number(data?.options.maximum)
  
@@ -118,9 +119,7 @@ const getFolders = async (token, startsWith) => {
         Accept: 'application/json',
       },
     },
-  ).then((res) => {
-    console.log(res, 'res')
-    res.json()}) 
+  )
   const allLinks = await response.json()
   // Map Folders
   return Object.values(allLinks.links)

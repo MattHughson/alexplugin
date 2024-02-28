@@ -118,7 +118,9 @@ const getFolders = async (token, startsWith) => {
         Accept: 'application/json',
       },
     },
-  )
+  ).then((res) => {
+    console.log(res, 'res')
+    res.json()}) 
   const allLinks = await response.json()
   // Map Folders
   return Object.values(allLinks.links)
